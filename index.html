@@ -1,40 +1,74 @@
-<html>
-   
-    <head>
-         <title> Resepku</title>
-    </head>
-    <body>
-         <link href="./style.css" rel="stylesheet">
-        
-    </body>
-    <!-- Card 1 -->
-     <div class="Card">
-        <div class="photo">
-           <img src="./nasi goreng.png" alt="Nasi Goreng Kampung">
-        </div>
-        <div class="desc">
-            <div class="typo">
-                <h2>Nasi Goreng Kampung</h2>
-                <p> Nasi goreng tradisional dengan bumbu rumahan, terasi pedas, dan kerupuk renyah.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1- Interactive Cards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font bold text-center mb-10">My Interactive Features</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div onclick="alert('Card 1 diklik')" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-transparent hover:border-blue-500 group">
+                <div class="flex justify-between items-start">
+                    <div class="bg-blue-100 p-3 rounded-lg-text-blue-600">
+                       <i data-lucide="zap"></i>
+                    </div>
+                    <button onclick="toggleFavorite(event, this)" class="text-gray-300 hover:text-red-500 transition-color">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <h3 class="mt-4 text-xl font-semibold">Fast Performance</h3>
+                <p class="mt-2 text-gray-500 text-sm">Aplikasi ini Berjalan Sangat Baik</p>
             </div>
-             <div class="other">
-                <div class="timer-badge">
-                    <span class="timer">
-                    ⏱ 25 mnt
-                    <div class="badge">MUDAH</div>
-                    <div class="User">
-                    <span>B</span>
-                    <span>Budi</span>
+
+                <div onclick="alert('Card-2 di klik')"class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-transparent hover:border-blue:500">
+                <div class="flex justify-between items-start">
+                    <div class="bg-green-100 p-3rounded-lg-text-green-600">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <button onclick="toggleFavorite(event,this)" class="text-gray-300" hover:text-red-500 transition-color">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </button>
                 </div>
-                </span>
-                
+                <h3 class="mt-4 text-xl font-semibold">Secure Data</h3>
+                <p class="mt-2 text-gray-500 text-sm"> Data Aman Bersama Kami</p>
+            </div>
+            <div onclick="alert('Card-3 di klik!')" class="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-transparent hover:border-blue-500">
+                <div class="flex justify-between items-start">
+                    <div class="bg-purple-100 p-3 rounded-lg text-purple-600">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+                    <button onclick="toggleFavorite(event,this)" class="text-gray-300 hover:text-red-500 transition-color">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </button>
                 </div>
-                
-                
-             </div>
-     </div>
+                <h3 class="mt-4 text-xl font-bold text-gray-800">Mobile Ready</h3>
+                <p class="mt-2 text-gray-500 text-sm">Tampilan yang sangat responsif untuk webiste ini</p>
+            </div>
         </div>
-       
-  
+        
+    </div>
+    <script>
+        //Inisialiasi Ikon 
+        lucide.createIcons();
+        function toggleFavorite(event,element){
+            event.stopPropagation();
+            const icon = element.querySelector('i');
+            if(element.classList.contains('text-red-500')) {
+                element.classList.remove('text-red-500');
+                element.classList.add('text-gray-300');
+                icon.setAttribute('fill','none');
+            }else{
+                element.classList.remove('text-gray-300');
+                element.classList.add('text-red-500');
+                icon.setAttribute('fill','currentcolor');
+            }
+        }
     
+    </script>
+</body>
 </html>
